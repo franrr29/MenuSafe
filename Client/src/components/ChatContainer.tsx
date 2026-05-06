@@ -3,7 +3,7 @@ import { ChatHistory } from './ChatHistory';
 import { RecomList } from './RecomList';
 import { useChatSession } from '../hooks/useChatSession';
 import { useChatAPI } from '../hooks/useChatAPI';
-import type { Message } from "../types/menu.schema";
+
 
 export function UserChat() {
     const { sessionID, messages, setMessages, currentRecom, setCurrentRecom } = useChatSession();

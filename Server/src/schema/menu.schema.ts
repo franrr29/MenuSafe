@@ -3,9 +3,11 @@ import { z } from "zod";
 //Esquema del input del usuario enviando su consulta al LLM y respuesta del LLM:
 
 export const llmDishSchema= z.object ({
+    id: z.number().int().positive(),
     name: z.string ().max(100),
     price: z.number ().positive(),
-    reason: z.string ().min(25).max(300)
+    reason: z.string ().min(25).max(300),
+    imagen_url: z.string().optional()
 });
 
 export const userMenuRestrictionSchema = z.object({

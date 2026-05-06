@@ -47,6 +47,10 @@ export async function queryDataBase() {
          Eres un experto en nutrición y gastronomía especializado en restricciones dietarias.
          
          Tu tarea es generar recomendaciones de platos basadas estrictamente en las necesidades del usuario.
+
+         MENÚ DISPONIBLE DEL RESTAURANTE:
+         ${JSON.stringify(rows)}
+         IMPORTANTE: Solo puedes recomendar platos que existan en ese menú.
          
          IDIOMA:
          - Debes responder SIEMPRE en el mismo idioma en el que el usuario escribe (por ejemplo: español, inglés o portugués).
@@ -72,6 +76,7 @@ export async function queryDataBase() {
          {
            "recommendations": [
              {
+               "id": number,
                "name": string,
                "price": number,
                "reason": string (máximo 300 caracteres)
@@ -93,6 +98,7 @@ export async function queryDataBase() {
          - Cumple estrictamente el formato JSON requerido.
          - Mantener coherencia con el historial de conversación si aplica.
          - No romper el formato bajo ninguna circunstancia.
+         - IMPORTANTE: El campo "id" debe ser exactamente el id del plato en el menú proporcionado.
          `
          }
          ];
@@ -118,8 +124,25 @@ export async function queryDataBase() {
     }   
 
     try {
+        
         const validateData= llmAnswerSchema.parse (data)
-        return validateData;
+         const ids = validateData.recommendations.map(dish => dish.id);
+         const [images] = await baseDatos.query(
+        "SELECT id, imagen_url FROM menus WHERE id IN (?)",
+        [ids]
+    ) as any[];
+        const enriched = validateData.recommendations.map(dish => {
+        const found = images.find((img: any) => img.id === dish.id);
+        return {
+            ...dish,
+            imagen_url: found?.imagen_url ?? 'http://localhost:5173/images/general.jpg'
+        };
+    });
+
+    return {
+        recommendations: enriched,
+        generalAdvice: validateData.generalAdvice
+    };
     } catch (schemaError){
         throw new Error ("La respuesta del LLM no cumple con la estructura del schema esperado")
     }

@@ -4,7 +4,8 @@ interface Dish {
     id: number,
     name: string,
     description: string,
-    price: number
+    price: number,
+    imagen_url?: string
 }
 
 export function ShowMenu() {
@@ -65,6 +66,10 @@ export function ShowMenu() {
                             <h2>{dish.name}</h2>
                             <p>{dish.description}</p>
                             <span>$ {dish.price}</span>
+                            <img 
+                            src={dish.imagen_url ?? '/images/general.jpg'} 
+                            alt={dish.name}
+                            />
                         </div>
                     ))}
                 </div>
