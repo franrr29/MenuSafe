@@ -26,7 +26,7 @@ export function ChatInput({ onSubmit, loading }: Props) {
 
    return (
     <div className="mt-4 border-t border-white/10 pt-4">
-        <div className="flex gap-2 rounded-3xl border border-white/10 bg-zinc-950/70 p-2 shadow-inner shadow-black/30">
+        <div className="flex gap-2 rounded-2xl border border-white/10 bg-zinc-950/70 p-2 shadow-inner shadow-black/30">
             <input
                 type="text"
                 value={input}

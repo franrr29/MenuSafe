@@ -22,8 +22,8 @@ export const userMenuRestrictionSchema = z.object({
 
 
 export const llmAnswerSchema= z.object ({
-    recommendations: z.array (llmDishSchema).min (3).max(5),
-    generalAdvice: z.string().min(120).max (300).optional(),
+    recommendations: z.array (llmDishSchema).min (0).max(5),
+    generalAdvice: z.string().min(120).max (500).optional(),
     
 
 });

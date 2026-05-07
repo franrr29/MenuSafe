@@ -41,18 +41,18 @@ export function UserChat() {
             <div className="mb-5 border-b border-[#8f6b4a]/20 pb-5">
                 <div className="mb-4 flex items-center justify-between gap-4">
                     <p className="font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-[#b08a63]">
-                        MenuSafe / I.A
+                        MenuSafe × AI
                     </p>
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
                     <div>
                         <h1 className="font-['Playfair_Display_SC'] text-4xl leading-none text-[#eee6dc] md:text-5xl">
-                            Elegi mejor
+                            Smart Selection
                         </h1>
 
                         <p className="mt-3 max-w-md text-sm leading-6 text-[#a89d91]">
-                            Conta que estas buscando y el menu responde con platos recomendados.
+                            Type what you want and let AI find your next favorite dish.
                         </p>
                     </div>
                 </div>

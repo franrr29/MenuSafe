@@ -13,7 +13,7 @@ export function ChatHistory({ messages, loading }: Props) {
         <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
             {messages.length === 0 && (
                 <div className="rounded-3xl border border-amber-100/10 bg-stone-900/50 p-5 text-sm leading-6 text-stone-300">
-                    Proba escribir algo como: "quiero una hamburguesa, pero algo liviano".
+                    Try writing something like: "I want a burger, but something light".
                 </div>
             )}
 
@@ -28,7 +28,7 @@ export function ChatHistory({ messages, loading }: Props) {
                     className="flex items-center gap-2 text-sm text-amber-200"
                 >
                     <Loader2 size={17} className="animate-spin" />
-                    Cargando recomendacion...
+                    Loading recommendation..
                 </motion.div>
             )}
         </div>

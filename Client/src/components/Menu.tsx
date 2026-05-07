@@ -91,7 +91,7 @@ export function ShowMenu() {
                         </h1>
 
                         <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.25em] text-zinc-500">
-                            american food / since 1964
+                            american food / since 1996
                         </p>
                     </div>
 
@@ -101,7 +101,7 @@ export function ShowMenu() {
                         </p>
 
                         <p className="mt-2 text-sm leading-6 text-zinc-400">
-                            Browse the menu and ask the assistant for a recommendation based on your craving.
+                            Check the dishes and tell the AI what you’re in the mood for.
                         </p>
                     </div>
                 </div>
