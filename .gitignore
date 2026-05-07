@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+Client/node_modules/
+Server/node_modules/
+
+# Env files (MUY IMPORTANTE no subirlos)
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+Client/dist/
+Client/build/
+Server/dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# TypeScript
+*.tsbuildinfo
+
+# Optional: coverage
+coverage/
