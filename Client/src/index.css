@@ -1,7 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
+  font-family: "Karla", system-ui, sans-serif;
+  background: #080705;
+}
+
+img {
+  display: block;
+}
+
+.lux-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #d6c7a1 #050505;
+}
+
+.lux-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lux-scrollbar::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+.lux-scrollbar::-webkit-scrollbar-thumb {
+  background: #d6c7a1;
 }

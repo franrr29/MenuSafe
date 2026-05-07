@@ -1,6 +1,7 @@
-import { MessageBubble } from './MessageBubble';
+import { Loader2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { MessageBubble } from "./MessageBubble";
 import type { Message } from "../types/menu.schema";
-
 
 interface Props {
     messages: Message[];
@@ -8,15 +9,28 @@ interface Props {
 }
 
 export function ChatHistory({ messages, loading }: Props) {
-   
     return (
-    <div>
-        {messages.map((msg, index) => (
-            <MessageBubble key={index} message={msg} />
-        ))}
+        <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
+            {messages.length === 0 && (
+                <div className="rounded-3xl border border-amber-100/10 bg-stone-900/50 p-5 text-sm leading-6 text-stone-300">
+                    Proba escribir algo como: "quiero una hamburguesa, pero algo liviano".
+                </div>
+            )}
 
-        {loading && <p>Cargando...</p>}
-    </div>
-    
-)
+            {messages.map((msg, index) => (
+                <MessageBubble key={index} message={msg} />
+            ))}
+
+            {loading && (
+                <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-2 text-sm text-amber-200"
+                >
+                    <Loader2 size={17} className="animate-spin" />
+                    Cargando recomendacion...
+                </motion.div>
+            )}
+        </div>
+    );
 }
