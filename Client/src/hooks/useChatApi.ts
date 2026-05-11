@@ -5,8 +5,7 @@ import type { Message, llmDish } from "../types/menu.schema";
 export function useChatAPI() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const API_URL = import.meta.env.VITE_API_URL || "";
-
+    const API_URL: string = import.meta.env.VITE_API_URL || "";
     async function sendMessage(
         userText: string,
         messages: Message[],
