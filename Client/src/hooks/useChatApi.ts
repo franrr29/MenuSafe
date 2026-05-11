@@ -6,6 +6,7 @@ export function useChatAPI() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const API_URL: string = import.meta.env.VITE_API_URL || "";
+
     async function sendMessage(
         userText: string,
         messages: Message[],
@@ -17,6 +18,7 @@ export function useChatAPI() {
         }
 
         setLoading(true);
+        setError(""); 
 
         try {
             const res = await fetch(`${API_URL}/api/chat/recommendations`, {
@@ -39,12 +41,13 @@ export function useChatAPI() {
 
             return {
                 recommendations: validarData.recommendations,
-                generalAdvice: validarData.generalAdvice || ""            };
+                // Usamos coalescencia nula para asegurar que siempre sea string
+                generalAdvice: validarData.generalAdvice ?? ""
+            };
 
-        } catch (error: any) {
-            setError(error.message || "Error desconocido");
+        } catch (err: any) {
+            setError(err.message || "Error desconocido");
             return null;
-
         } finally {
             setLoading(false);
         }
