@@ -1,10 +1,10 @@
-import { AlertCircle, Sparkles } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { ChatInput } from "./ChatInput";
 import { ChatHistory } from "./ChatHistory";
 import { RecomList } from "./RecomList";
 import { useChatSession } from "../hooks/useChatSession";
-import { useChatAPI } from "../hooks/useChatAPI";
+import { useChatAPI } from "../hooks/useChatApi";
 
 export function UserChat() {
     const { sessionID, messages, setMessages, currentRecom, setCurrentRecom } = useChatSession();

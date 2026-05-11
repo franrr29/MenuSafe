@@ -8,7 +8,7 @@ interface Props {
     label?: string;
 }
 
-export function CyberFoodCard({ name, description, price, image, label = "RECOMMENDED" }: Props) {
+export function CyberFoodCard({ name, price, image, label = "RECOMMENDED" }: Props) {
     return (
         <motion.article
             whileHover={{ y: -6 }}
