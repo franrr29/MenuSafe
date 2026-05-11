@@ -39,8 +39,7 @@ export function useChatAPI() {
 
             return {
                 recommendations: validarData.recommendations,
-                generalAdvice: validarData.generalAdvice
-            };
+                generalAdvice: validarData.generalAdvice || ""            };
 
         } catch (error: any) {
             setError(error.message || "Error desconocido");
