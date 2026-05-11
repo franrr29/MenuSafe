@@ -7,27 +7,27 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+app.use(cors());
+
 app.use(express.json());
 
-app.use(cors({
-  origin: "*"
-}));
-
+app.options("*", cors());
 
 app.use("/api/chat", chatRouter);
 
 app.get("/api/health", (req, res) => {
-  res.json({ ok: true });
+res.json({ ok: true });
 });
 
 app.listen(PORT, async () => {
-  try {
-    console.log(`Servidor corriendo en puerto ${PORT}`);
+try {
+console.log(`Servidor corriendo en puerto ${PORT}`);
 
-    await testDataBaseConnection();
+await testDataBaseConnection();
 
-  } catch (error) {
-    console.error("No se pudo conectar a la base de datos");
-    process.exit(1);
-  }
+
+} catch (error) {
+console.error("No se pudo conectar a la base de datos");
+process.exit(1);
+}
 });
