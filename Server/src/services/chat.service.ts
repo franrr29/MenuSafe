@@ -174,10 +174,12 @@ export async function queryDataBase() {
             };
         }
 
-         const [images] = await baseDatos.query(
-        "SELECT id, imagen_url FROM menus WHERE id IN (?)",
-        [ids]
-    ) as any[];
+        const idsString = ids.join(",");
+
+        const [images] = await baseDatos.query(
+        `SELECT id, imagen_url FROM menus WHERE id IN (${idsString})`
+        ) as any[];
+
 
         const enriched = validateData.recommendations.map(dish => {
         const found = images.find((img: any) => img.id === dish.id);
