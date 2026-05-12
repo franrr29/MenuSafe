@@ -11,8 +11,6 @@ app.use(cors());
 
 app.use(express.json());
 
-app.options("*", cors());
-
 app.use("/api/chat", chatRouter);
 
 app.get("/api/health", (req, res) => {
